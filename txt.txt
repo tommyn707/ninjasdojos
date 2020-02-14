@@ -1,0 +1,51 @@
+>>> print(newly_created_dojos.id)
+1
+>>> newly_created_dojos = dojos.objects.create(name="dojo2",city="oakland",state="CA")
+>>> print(newly_created_dojos.id)                                               2
+>>> newly_created_dojos = dojos.objects.create(name="dojo3",city="oakland",state="CA")
+>>> print(newly_created_dojos.id)                                               3
+
+>>> dojos_to_delete = dojos.objects.get(id=1)
+>>> dojos_to_delete.delete()
+(1, {'dojo_ninjas_app.dojos': 1})
+>>> dojos_to_delete = dojos.objects.get(id=2)
+>>> dojos_to_delete.delete()
+(1, {'dojo_ninjas_app.dojos': 1})
+>>> dojos_to_delete = dojos.objects.get(id=3)
+>>> dojos_to_delete.delete()
+(1, {'dojo_ninjas_app.dojos': 1})
+>>> all_dojos = dojos.objects.all()
+>>> all_dojos
+
+>>> newly_created_dojos = dojos.objects.create(name="dojo1",city="oakland",state="CA")
+>>> newly_created_dojos = dojos.objects.create(name="dojo2",city="oakland",state="CA")
+>>> newly_created_dojos = dojos.objects.create(name="dojo3",city="oakland",state="CA")
+>>>
+
+>>> my_ninjas = ninjas.objects.create(first_name="john",last_name="smith", dojo_id=this_dojo)
+>>> my_ninjas = ninjas.objects.create(first_name="tom",last_name="smith", dojo_id=this_dojo)
+>>> my_ninjas = ninjas.objects.create(first_name="tom",last_name="smith", dojo_id=this_dojo)
+>>> my_ninjas = ninjas.objects.create(first_name="lawn",last_name="smith", dojo_id=this_dojo)
+>>> this_dojo = dojos.objects.get(id=5)
+>>> my_ninjas = ninjas.objects.create(first_name="lawn",last_name="smith", dojo_id=this_dojo)
+>>> my_ninjas = ninjas.objects.create(first_name="tom",last_name="smith", dojo_id=this_dojo)
+>>> my_ninjas = ninjas.objects.create(first_name="john",last_name="smith", dojo_id=this_dojo)
+>>> this_dojo - dojos.objects.get(id=6)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: unsupported operand type(s) for -: 'dojos' and 'dojos'
+>>> this_dojo = dojos.objects.get(id=6)
+>>> my_ninjas = ninjas.objects.create(first_name="john",last_name="smith", dojo_id=this_dojo)
+>>> my_ninjas = ninjas.objects.create(first_name="tom",last_name="smith", dojo_id=this_dojo)
+>>> my_ninjas = ninjas.objects.create(first_name="lawn",last_name="smith", dojo_id=this_dojo)
+>>> all_dojos = dojos.objects.all()
+>>> all_dojos
+<QuerySet [<dojos: dojos object (4)>, <dojos: dojos object (5)>, <dojos: dojos object (6)>]>
+>>> all_ninjas = ninjas.objects.all()
+>>> all_ninjas
+<QuerySet [<ninjas: ninjas object (1)>, <ninjas: ninjas object (2)>, <ninjas: ninjas object (3)>, <ninjas: ninjas object (4)>, <ninjas: ninjas object (5)>, <ninjas: ninjas object (6)>, <ninjas: ninjas object (7)>, <ninjas: ninjas object (8)>, <ninjas: ninjas object (9)>, <ninjas: ninjas object (10)>]>
+<QuerySet [<ninjas: ninjas object (1)>, <ninjas: ninjas object (2)>, <ninjas: ninjas object (3)>, <ninjas: ninjas object (4)>]>
+<QuerySet [<ninjas: ninjas object (5)>, <ninjas: ninjas object (6)>, <ninjas: ninjas object (7)>]>
+<QuerySet [<ninjas: ninjas object (8)>, <ninjas: ninjas object (9)>, <ninjas: ninjas object (10)>]>
+>>> last_ninja
+<ninjas: ninjas object (10)>
